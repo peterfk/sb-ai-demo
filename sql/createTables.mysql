@@ -1,0 +1,102 @@
+-- Create Owners table
+CREATE TABLE Owners (
+  owner_id INT PRIMARY KEY,
+  first_name VARCHAR(50) NOT NULL,
+  last_name VARCHAR(50) NOT NULL,
+  email VARCHAR(100) NOT NULL UNIQUE,
+  phone VARCHAR(20) NOT NULL,
+  address VARCHAR(100) NOT NULL
+);
+
+-- Create Pets table
+CREATE TABLE Pets (
+  pet_id INT PRIMARY KEY,
+  owner_id INT NOT NULL,
+  name VARCHAR(50) NOT NULL,
+  species VARCHAR(20) NOT NULL,
+  breed VARCHAR(50) NOT NULL,
+  age INT NOT NULL,
+  weight DECIMAL(5,2) NOT NULL,
+  sex VARCHAR(10) NOT NULL,
+  FOREIGN KEY (owner_id) REFERENCES Owners(owner_id)
+);
+
+-- Create Appointments table
+CREATE TABLE Appointments (
+  appointment_id INT PRIMARY KEY,
+  pet_id INT NOT NULL,
+  date DATE NOT NULL,
+  time TIME NOT NULL,
+  reason VARCHAR(100) NOT NULL,
+  FOREIGN KEY (pet_id) REFERENCES Pets(pet_id)
+);
+
+-- Create Vaccinations table
+CREATE TABLE Vaccinations (
+  vaccination_id INT PRIMARY KEY,
+  pet_id INT NOT NULL,
+  vaccine_type VARCHAR(50) NOT NULL,
+  administration_date DATE NOT NULL,
+  expiration_date DATE NOT NULL,
+  FOREIGN KEY (pet_id) REFERENCES Pets(pet_id)
+);
+
+-- Create Medications table
+CREATE TABLE Medications (
+  medication_id INT PRIMARY KEY,
+  pet_id INT NOT NULL,
+  medication_name VARCHAR(50) NOT NULL,
+  dosage VARCHAR(20) NOT NULL,
+  administration_method VARCHAR(20) NOT NULL,
+  start_date DATE NOT NULL,
+  end_date DATE,
+  FOREIGN KEY (pet_id) REFERENCES Pets(pet_id)
+);
+
+-- Create Visits table
+CREATE TABLE Visits (
+  visit_id INT PRIMARY KEY,
+  appointment_id INT NOT NULL,
+  visit_date DATE NOT NULL,
+  chief_complaint VARCHAR(100) NOT NULL,
+  examination_findings VARCHAR(200) NOT NULL,
+  diagnosis VARCHAR(100) NOT NULL,
+  treatment VARCHAR(200) NOT NULL,
+  FOREIGN KEY (appointment_id) REFERENCES Appointments(appointment_id)
+);
+
+-- Create Lab Results table
+CREATE TABLE LabResults (
+  lab_result_id INT PRIMARY KEY,
+  visit_id INT NOT NULL,
+  test_name VARCHAR(50) NOT NULL,
+  result DECIMAL(10,2) NOT NULL,
+  units VARCHAR(20) NOT NULL,
+  reference_range VARCHAR(50) NOT NULL,
+  FOREIGN KEY (visit_id) REFERENCES Visits(visit_id)
+);
+
+-- Create Imaging table
+CREATE TABLE Imaging (
+  imaging_id INT PRIMARY KEY,
+  visit_id INT NOT NULL,
+  study_type VARCHAR(50) NOT NULL,
+  image_url VARCHAR(200) NOT NULL,
+  FOREIGN KEY (visit_id) REFERENCES Visits(visit_id)
+);
+
+-- Create Users table
+CREATE TABLE Users (
+  user_id INT PRIMARY KEY,
+  username VARCHAR(50) NOT NULL UNIQUE,
+  password VARCHAR(100) NOT NULL,
+  role VARCHAR(20) NOT NULL
+);
+
+-- Create User Roles table (many-to-many relationship)
+CREATE TABLE UserRoles (
+  user_id INT NOT NULL,
+  role VARCHAR(20) NOT NULL,
+  PRIMARY KEY (user_id, role),
+  FOREIGN KEY (user_id) REFERENCES Users(user_id)
+);

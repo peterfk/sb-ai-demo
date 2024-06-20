@@ -1,0 +1,9 @@
+-- Create indexes on columns used in WHERE, JOIN, and ORDER BY clauses
+CREATE INDEX idx_owners_email ON Owners(email);
+CREATE INDEX idx_pets_owner_id ON Pets(owner_id);
+CREATE INDEX idx_appointments_pet_id ON Appointments(pet_id);
+CREATE INDEX idx_vaccinations_pet_id ON Vaccinations(pet_id);
+CREATE INDEX idx_medications_pet_id ON Medications(pet_id);
+CREATE INDEX idx_visits_appointment_id ON Visits(appointment_id);
+CREATE INDEX idx_lab_results_visit_id ON LabResults(visit_id);
+CREATE INDEX idx_imaging_visit_id ON Imaging(visit_id);
