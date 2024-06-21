@@ -1,22 +1,11 @@
 package com.example.sb_ai_demo.controllers;
 
-import java.util.ArrayList;
-import java.util.List;
-
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
-import com.example.sb_ai_demo.entities.Pet;
-import com.example.sb_ai_demo.services.PetService;
-
 @RestController
 public class GreetingController {
-
-    @Autowired
-    private PetService petService;
 
     @GetMapping("/")
     /**
@@ -50,30 +39,13 @@ public class GreetingController {
         return String.format("Hello %s!", name);
     }
 
-    @GetMapping("/insert")
-    public String insert() {
-
-        // insert data into DB
-        petService.savePets();
-
-        return "Saved new Pets";
+    /**
+     * Returns a health check response.
+     *
+     * @return A string indicating the application's health status.
+     */
+    @GetMapping("/health")
+    public String health() {
+        return "OK";
     }
-
-    @GetMapping("/findpets")
-    public List<Pet> searchPets(@RequestParam(name = "name", required = false) String name) {
-        List<Pet> pets = new ArrayList<>();
-        if (name != null && !name.isEmpty()) {
-            pets = petService.searchPetsByName(name);
-        } else {
-            // return all pets if no name is provided
-            pets = petService.getAllPets();
-        }
-        return pets;
-    }
-
-    @GetMapping("/owners/{ownerName}")
-    public List<Pet> getPetsByOwnerName(@PathVariable String ownerName) {
-        return petService.getPetsByOwnerName(ownerName);
-    }
-
 }
