@@ -1,0 +1,24 @@
+-- Create constraints to ensure data integrity
+ALTER TABLE Pets
+ADD CONSTRAINT fk_pets_owners FOREIGN KEY (owner_id) REFERENCES Owners(owner_id);
+
+ALTER TABLE Appointments
+ADD CONSTRAINT fk_appointments_pets FOREIGN KEY (pet_id) REFERENCES Pets(pet_id);
+
+ALTER TABLE Vaccinations
+ADD CONSTRAINT fk_vaccinations_pets FOREIGN KEY (pet_id) REFERENCES Pets(pet_id);
+
+ALTER TABLE Medications
+ADD CONSTRAINT fk_medications_pets FOREIGN KEY (pet_id) REFERENCES Pets(pet_id);
+
+ALTER TABLE Visits
+ADD CONSTRAINT fk_visits_appointments FOREIGN KEY (appointment_id) REFERENCES Appointments(appointment_id);
+
+ALTER TABLE LabResults
+ADD CONSTRAINT fk_lab_results_visits FOREIGN KEY (visit_id) REFERENCES Visits(visit_id);
+
+ALTER TABLE Imaging
+ADD CONSTRAINT fk_imaging_visits FOREIGN KEY (visit_id) REFERENCES Visits(visit_id);
+
+ALTER TABLE UserRoles
+ADD CONSTRAINT fk_userroles_users FOREIGN KEY (user_id) REFERENCES Users(user_id);
