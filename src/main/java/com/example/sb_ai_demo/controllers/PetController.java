@@ -46,5 +46,10 @@ public class PetController {
     public void deletePet(@PathVariable Integer id) {
         petService.deletePet(id);
     }
+
+    @PostMapping("/create-pets")
+    public void createMultiplePets() {
+        petService.createPets();
+    }
 }
 

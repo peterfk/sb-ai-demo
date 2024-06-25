@@ -46,5 +46,11 @@ public class OwnerController {
     public void deleteOwner(@PathVariable Integer id) {
         ownerService.deleteOwner(id);
     }
+
+    @GetMapping("/testdata")
+    public String createTestData() {
+        ownerService.createTestData(); // Call createTestData method
+        return "Test data created successfully";
+    }
 }
 

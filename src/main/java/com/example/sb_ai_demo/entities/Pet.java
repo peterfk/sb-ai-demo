@@ -3,6 +3,8 @@ package com.example.sb_ai_demo.entities;
 
 import java.util.List;
 
+import com.fasterxml.jackson.annotation.JsonManagedReference;
+
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
@@ -20,6 +22,7 @@ public class Pet {
     private int petId;
     @ManyToOne
     @JoinColumn(name = "owner_id")
+    @JsonManagedReference
     private Owner owner;
     private String name;
     private String species;
@@ -36,6 +39,20 @@ public class Pet {
 
     @OneToMany(mappedBy = "pet")
     private List<Medication> medications;
+
+
+    public Pet(String name, String species, String breed, int age, double weight, String sex, Owner owner) {
+        this.owner = owner;
+        this.name = name;
+        this.species = species;
+        this.breed = breed;
+        this.age = age;
+        this.weight = weight;
+        this.sex = sex;
+    }
+
+    public Pet() {
+    }
 
     public int getPetId() {
         return petId;
