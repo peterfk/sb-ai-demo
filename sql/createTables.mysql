@@ -1,6 +1,6 @@
 -- Create Owners table
 CREATE TABLE Owners (
-  owner_id INT PRIMARY KEY,
+  owner_id INT AUTO_INCREMENT PRIMARY KEY,
   first_name VARCHAR(50) NOT NULL,
   last_name VARCHAR(50) NOT NULL,
   email VARCHAR(100) NOT NULL UNIQUE,
@@ -10,7 +10,7 @@ CREATE TABLE Owners (
 
 -- Create Pets table
 CREATE TABLE Pets (
-  pet_id INT PRIMARY KEY,
+  pet_id INT AUTO_INCREMENT PRIMARY KEY,
   owner_id INT NOT NULL,
   name VARCHAR(50) NOT NULL,
   species VARCHAR(20) NOT NULL,
@@ -23,7 +23,7 @@ CREATE TABLE Pets (
 
 -- Create Appointments table
 CREATE TABLE Appointments (
-  appointment_id INT PRIMARY KEY,
+  appointment_id INT AUTO_INCREMENT PRIMARY KEY,
   pet_id INT NOT NULL,
   date DATE NOT NULL,
   time TIME NOT NULL,
@@ -33,7 +33,7 @@ CREATE TABLE Appointments (
 
 -- Create Vaccinations table
 CREATE TABLE Vaccinations (
-  vaccination_id INT PRIMARY KEY,
+  vaccination_id INT AUTO_INCREMENT PRIMARY KEY,
   pet_id INT NOT NULL,
   vaccine_type VARCHAR(50) NOT NULL,
   administration_date DATE NOT NULL,
@@ -43,7 +43,7 @@ CREATE TABLE Vaccinations (
 
 -- Create Medications table
 CREATE TABLE Medications (
-  medication_id INT PRIMARY KEY,
+  medication_id INT AUTO_INCREMENT PRIMARY KEY,
   pet_id INT NOT NULL,
   medication_name VARCHAR(50) NOT NULL,
   dosage VARCHAR(20) NOT NULL,
@@ -55,7 +55,7 @@ CREATE TABLE Medications (
 
 -- Create Visits table
 CREATE TABLE Visits (
-  visit_id INT PRIMARY KEY,
+  visit_id INT AUTO_INCREMENT PRIMARY KEY,
   appointment_id INT NOT NULL,
   visit_date DATE NOT NULL,
   chief_complaint VARCHAR(100) NOT NULL,
@@ -67,7 +67,7 @@ CREATE TABLE Visits (
 
 -- Create Lab Results table
 CREATE TABLE LabResults (
-  lab_result_id INT PRIMARY KEY,
+  lab_result_id INT AUTO_INCREMENT PRIMARY KEY,
   visit_id INT NOT NULL,
   test_name VARCHAR(50) NOT NULL,
   result DECIMAL(10,2) NOT NULL,
@@ -78,7 +78,7 @@ CREATE TABLE LabResults (
 
 -- Create Imaging table
 CREATE TABLE Imaging (
-  imaging_id INT PRIMARY KEY,
+  imaging_id INT AUTO_INCREMENT PRIMARY KEY,
   visit_id INT NOT NULL,
   study_type VARCHAR(50) NOT NULL,
   image_url VARCHAR(200) NOT NULL,
@@ -87,7 +87,7 @@ CREATE TABLE Imaging (
 
 -- Create Users table
 CREATE TABLE Users (
-  user_id INT PRIMARY KEY,
+  user_id INT AUTO_INCREMENT PRIMARY KEY,
   username VARCHAR(50) NOT NULL UNIQUE,
   password VARCHAR(100) NOT NULL,
   role VARCHAR(20) NOT NULL

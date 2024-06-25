@@ -9,6 +9,7 @@ import jakarta.persistence.*;
 @Table(name = "Vaccinations")
 public class Vaccination {
     @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int vaccinationId;
     @ManyToOne
     @JoinColumn(name = "pet_id")

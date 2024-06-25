@@ -8,6 +8,7 @@ import java.util.Date;
 @Table(name = "Visits")
 public class Visit {
     @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int visitId;
     @ManyToOne
     @JoinColumn(name = "appointment_id")

@@ -7,6 +7,7 @@ import java.util.Date;
 @Table(name = "Medications")
 public class Medication {
     @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int medicationId;
     @ManyToOne
     @JoinColumn(name = "pet_id")

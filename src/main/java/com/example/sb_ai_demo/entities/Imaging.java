@@ -6,6 +6,7 @@ import jakarta.persistence.*;
 @Table(name = "Imaging")
 public class Imaging {
     @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int imagingId;
     @ManyToOne
     @JoinColumn(name = "visit_id")
