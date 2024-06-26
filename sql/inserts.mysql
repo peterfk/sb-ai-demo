@@ -1,0 +1,90 @@
+
+INSERT INTO Appointments (pet_id, date, time, reason) VALUES
+(1, '2024-07-01', '09:00:00', 'Annual check-up');
+
+INSERT INTO Appointments (pet_id, date, time, reason) VALUES
+(2, '2024-07-02', '10:30:00', 'Vaccination');
+
+INSERT INTO Appointments (pet_id, date, time, reason) VALUES
+(3, '2024-07-03', '14:00:00', 'Dental cleaning');
+
+INSERT INTO Appointments (pet_id, date, time, reason) VALUES
+(4, '2024-07-04', '11:00:00', 'Skin issue');
+
+INSERT INTO Appointments (pet_id, date, time, reason) VALUES
+(5, '2024-07-05', '15:30:00', 'Limping');
+
+INSERT INTO Appointments (pet_id, date, time, reason) VALUES
+(6, '2024-07-06', '09:30:00', 'Eye infection');
+
+INSERT INTO Appointments (pet_id, date, time, reason) VALUES
+(7, '2024-07-07', '13:00:00', 'Vomiting');
+
+INSERT INTO Appointments (pet_id, date, time, reason) VALUES
+(8, '2024-07-08', '16:00:00', 'Nail trim');
+
+INSERT INTO Appointments (pet_id, date, time, reason) VALUES
+(9, '2024-07-09', '10:00:00', 'Weight management');
+
+INSERT INTO Appointments (pet_id, date, time, reason) VALUES
+(10, '2024-07-10', '14:30:00', 'Behavior consultation');
+
+INSERT INTO Vaccinations (pet_id, vaccine_type, administration_date, expiration_date) VALUES
+(1, 'Rabies', '2023-07-15', '2024-07-15');
+
+INSERT INTO Vaccinations (pet_id, vaccine_type, administration_date, expiration_date) VALUES
+(2, 'Distemper', '2023-08-01', '2024-08-01');
+
+INSERT INTO Vaccinations (pet_id, vaccine_type, administration_date, expiration_date) VALUES
+(3, 'Bordetella', '2023-09-10', '2024-03-10');
+
+INSERT INTO Vaccinations (pet_id, vaccine_type, administration_date, expiration_date) VALUES
+(4, 'Leptospirosis', '2023-10-05', '2024-10-05');
+
+INSERT INTO Vaccinations (pet_id, vaccine_type, administration_date, expiration_date) VALUES
+(5, 'Feline Leukemia', '2023-11-20', '2024-11-20');
+
+INSERT INTO Vaccinations (pet_id, vaccine_type, administration_date, expiration_date) VALUES
+(6, 'Rabies', '2023-12-01', '2024-12-01');
+
+INSERT INTO Vaccinations (pet_id, vaccine_type, administration_date, expiration_date) VALUES
+(7, 'Parvovirus', '2024-01-15', '2025-01-15');
+
+INSERT INTO Vaccinations (pet_id, vaccine_type, administration_date, expiration_date) VALUES
+(8, 'Feline Calicivirus', '2024-02-10', '2025-02-10');
+
+INSERT INTO Vaccinations (pet_id, vaccine_type, administration_date, expiration_date) VALUES
+(9, 'Canine Influenza', '2024-03-05', '2025-03-05');
+
+INSERT INTO Vaccinations (pet_id, vaccine_type, administration_date, expiration_date) VALUES
+(10, 'Feline Rhinotracheitis', '2024-04-20', '2025-04-20');
+
+INSERT INTO Medications (pet_id, medication_name, dosage, administration_method, start_date, end_date) VALUES
+(1, 'Amoxicillin', '250mg', 'Oral', '2024-06-01', '2024-06-10');
+
+INSERT INTO Medications (pet_id, medication_name, dosage, administration_method, start_date, end_date) VALUES
+(2, 'Prednisone', '10mg', 'Oral', '2024-06-05', '2024-06-19');
+
+INSERT INTO Medications (pet_id, medication_name, dosage, administration_method, start_date, end_date) VALUES
+(3, 'Metacam', '5mg', 'Oral', '2024-06-10', '2024-06-24');
+
+INSERT INTO Medications (pet_id, medication_name, dosage, administration_method, start_date, end_date) VALUES
+(4, 'Apoquel', '16mg', 'Oral', '2024-06-15', '2024-07-15');
+
+INSERT INTO Medications (pet_id, medication_name, dosage, administration_method, start_date, end_date) VALUES
+(5, 'Clavamox', '125mg', 'Oral', '2024-06-20', '2024-06-30');
+
+INSERT INTO Medications (pet_id, medication_name, dosage, administration_method, start_date, end_date) VALUES
+(6, 'Terramycin', '1 drop', 'Topical', '2024-06-25', '2024-07-01');
+
+INSERT INTO Medications (pet_id, medication_name, dosage, administration_method, start_date, end_date) VALUES
+(7, 'Cerenia', '16mg', 'Oral', '2024-06-30', '2024-07-03');
+
+INSERT INTO Medications (pet_id, medication_name, dosage, administration_method, start_date, end_date) VALUES
+(8, 'Vetmedin', '5mg', 'Oral', '2024-07-05', NULL);
+
+INSERT INTO Medications (pet_id, medication_name, dosage, administration_method, start_date, end_date) VALUES
+(9, 'Methimazole', '5mg', 'Oral', '2024-07-10', NULL);
+
+INSERT INTO Medications (pet_id, medication_name, dosage, administration_method, start_date, end_date) VALUES
+(10, 'Fluoxetine', '20mg', 'Oral', '2024-07-15', NULL);
