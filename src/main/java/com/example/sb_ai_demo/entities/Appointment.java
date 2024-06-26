@@ -5,6 +5,9 @@ import java.sql.Time;
 import java.util.Date;
 import java.util.List;
 
+import com.fasterxml.jackson.annotation.JsonBackReference;
+import com.fasterxml.jackson.annotation.JsonManagedReference;
+
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
@@ -22,12 +25,14 @@ public class Appointment {
     private int appointmentId;
     @ManyToOne
     @JoinColumn(name = "pet_id")
+    @JsonManagedReference
     private Pet pet;
     private Date date;
     private Time time;
     private String reason;
 
     @OneToMany(mappedBy = "appointment")
+    @JsonBackReference
     private List<Visit> visits;
 
     public int getAppointmentId() {

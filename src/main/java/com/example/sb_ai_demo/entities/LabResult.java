@@ -1,20 +1,24 @@
 package com.example.sb_ai_demo.entities;
 
+import com.fasterxml.jackson.annotation.JsonManagedReference;
+
 import jakarta.persistence.*;
 
 @Entity
-@Table(name = "LabResults")
+@Table(name = "Labresults")
 public class LabResult {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int labResultId;
     @ManyToOne
     @JoinColumn(name = "visit_id")
+    @JsonManagedReference 
     private Visit visit;
     private String testName;
     private double result;
     private String units;
     private String referenceRange;
+
     public int getLabResultId() {
         return labResultId;
     }

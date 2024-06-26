@@ -3,6 +3,7 @@ package com.example.sb_ai_demo.entities;
 
 import java.util.List;
 
+import com.fasterxml.jackson.annotation.JsonBackReference;
 import com.fasterxml.jackson.annotation.JsonManagedReference;
 
 import jakarta.persistence.Entity;
@@ -32,12 +33,15 @@ public class Pet {
     private String sex;
 
     @OneToMany(mappedBy = "pet")
+    @JsonBackReference
     private List<Appointment> appointments;
 
     @OneToMany(mappedBy = "pet")
+    @JsonBackReference
     private List<Vaccination> vaccinations;
 
     @OneToMany(mappedBy = "pet")
+    @JsonBackReference
     private List<Medication> medications;
 
 
@@ -144,4 +148,5 @@ public class Pet {
 
     // getters and setters
 }
+
 

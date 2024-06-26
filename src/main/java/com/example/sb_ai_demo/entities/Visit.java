@@ -2,6 +2,10 @@ package com.example.sb_ai_demo.entities;
 
 import jakarta.persistence.*;
 import java.util.List;
+
+import com.fasterxml.jackson.annotation.JsonBackReference;
+import com.fasterxml.jackson.annotation.JsonManagedReference;
+
 import java.util.Date;
 
 @Entity
@@ -12,6 +16,7 @@ public class Visit {
     private int visitId;
     @ManyToOne
     @JoinColumn(name = "appointment_id")
+    @JsonManagedReference 
     private Appointment appointment;
     private Date visitDate;
     private String chiefComplaint;
@@ -20,9 +25,11 @@ public class Visit {
     private String treatment;
 
     @OneToMany(mappedBy = "visit")
+    @JsonBackReference
     private List<LabResult> labResults;
 
     @OneToMany(mappedBy = "visit")
+    @JsonBackReference
     private List<Imaging> imagings;
 
     public int getVisitId() {
