@@ -37,6 +37,22 @@ public class PetService {
         petRepository.deleteById(id);
     }
 
+    // Additional methods for creating pets and associating them with owners can be added here.
+    // Find Pets by Owner ID
+    public List<Pet> findPetsByOwnerId(Integer ownerId) {
+        return petRepository.findByOwnerId(ownerId);
+    }
+
+    // Find Pets by Name
+    public List<Pet> findPetsByName(String name) {
+        return petRepository.findByName(name);
+    }
+
+    // Find Pets by Species
+    public List<Pet> findPetsBySpecies(String species) {
+        return petRepository.findBySpecies(species);
+    }
+
     public void createPets() {
         // Get existing owners
         List<Owner> owners = ownerRepository.findAllById(Arrays.asList(1, 2, 3, 4, 5));

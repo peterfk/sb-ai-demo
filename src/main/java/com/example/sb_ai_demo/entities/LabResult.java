@@ -10,6 +10,7 @@ public class LabResult {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int labResultId;
+
     @ManyToOne
     @JoinColumn(name = "visit_id")
     @JsonManagedReference 
