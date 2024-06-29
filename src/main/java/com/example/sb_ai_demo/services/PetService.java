@@ -40,7 +40,7 @@ public class PetService {
     // Additional methods for creating pets and associating them with owners can be added here.
     // Find Pets by Owner ID
     public List<Pet> findPetsByOwnerId(Integer ownerId) {
-        return petRepository.findByOwnerId(ownerId);
+        return petRepository.findByOwnerOwnerId(ownerId);
     }
 
     // Find Pets by Name

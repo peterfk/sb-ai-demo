@@ -10,6 +10,7 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.example.sb_ai_demo.entities.Owner;
@@ -51,6 +52,21 @@ public class OwnerController {
     public String createTestData() {
         ownerService.createTestData(); // Call createTestData method
         return "Test data created successfully";
+    }
+
+    @GetMapping("/search/{emailAddress}")
+    public Owner getOwnerByEmail(@PathVariable String emailAddress) {
+        return ownerService.getOwnerByEmail(emailAddress);
+    }
+
+    @GetMapping("/search/firstname-starts-with/{firstname}")
+    public List<Owner> getOwnersByFirstnameStartsWith(@PathVariable String firstname) {
+        return ownerService.getOwnersByFirstnameStartsWith(firstname);
+    }
+
+    @GetMapping("/search/lastname-or-firstname")
+    public Owner getOwnerByLastnameOrFirstname(@RequestParam String lastname, @RequestParam String firstname) {
+        return ownerService.getOwnerByLastnameOrFirstname(lastname, firstname);
     }
 }
 

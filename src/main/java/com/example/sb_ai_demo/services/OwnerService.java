@@ -30,6 +30,18 @@ public class OwnerService {
         ownerRepository.deleteById(id);
     }
 
+    public Owner getOwnerByEmail(String emailAddress) {
+        return ownerRepository.findByEmailAddress(emailAddress);
+    }
+    
+    public List<Owner> getOwnersByFirstnameStartsWith(String firstname) {
+        return ownerRepository.findByFirstnameStartsWith(firstname);
+    }
+    
+    public Owner getOwnerByLastnameOrFirstname(String lastname, String firstname) {
+        return ownerRepository.findByLastnameOrFirstname(lastname, firstname);
+    }
+
     public void createTestData() {
         Owner owner1 = new Owner();
         owner1.setFirstName("John");
