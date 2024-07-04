@@ -2,6 +2,8 @@ package com.example.sb_ai_demo.controllers;
 
 import java.util.List;
 
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -16,15 +18,25 @@ import org.springframework.web.bind.annotation.RestController;
 import com.example.sb_ai_demo.entities.Owner;
 import com.example.sb_ai_demo.services.OwnerService;
 
+
 @RestController
 @RequestMapping("/api/owners")
 public class OwnerController {
+
+    Logger logger = LoggerFactory.getLogger(OwnerController.class);
     
     @Autowired
     private OwnerService ownerService;
     
     @GetMapping
     public List<Owner> getAllOwners() {
+
+        logger.trace("A TRACE Message");
+        logger.debug("A DEBUG Message");
+        logger.info("An INFO Message");
+        logger.warn("A WARN Message");
+        logger.error("An ERROR Message");
+        
         return ownerService.getAllOwners();
     }
     
