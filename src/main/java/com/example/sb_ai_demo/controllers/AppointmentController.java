@@ -14,6 +14,8 @@ import org.springframework.web.bind.annotation.RestController;
 
 import com.example.sb_ai_demo.entities.Appointment;
 import com.example.sb_ai_demo.services.AppointmentService;
+import org.springframework.web.bind.annotation.RequestParam;
+
 
 @RestController
 @RequestMapping("/api/appointments")
@@ -46,5 +48,11 @@ public class AppointmentController {
     public void deleteAppointment(@PathVariable Integer id) {
         appointmentService.deleteAppointment(id);
     }
+
+    @GetMapping("/search")
+    public List<Appointment> getAppointmentByLastName(@RequestParam String lastname) {
+        return appointmentService.getAppointmentByLastName(lastname);
+    }
+    
 }
 
