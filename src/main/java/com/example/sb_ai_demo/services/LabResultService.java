@@ -25,6 +25,18 @@ public class LabResultService {
     public LabResult saveLabResult(LabResult labResult) {
         return labResultRepository.save(labResult);
     }
+
+    public LabResult getLabResult(int labResultId) {
+        return labResultRepository.findById(labResultId).orElse(null);
+    }
+
+    public LabResult createLabResult(LabResult labResult) {
+        return labResultRepository.save(labResult);
+    }
+
+    public LabResult updateLabResult(LabResult labResult) {
+        return labResultRepository.save(labResult);
+    }
     
     public void deleteLabResult(Integer id) {
         labResultRepository.deleteById(id);

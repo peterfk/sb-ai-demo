@@ -25,6 +25,15 @@ public class ImagingService {
     public Imaging saveImaging(Imaging imaging) {
         return imagingRepository.save(imaging);
     }
+
+    public Imaging updateImaging(Integer id, Imaging imaging) {
+        Imaging existingImaging = imagingRepository.findById(id).orElse(null);
+        if (existingImaging != null) {
+            imaging.setImagingId(id);
+            return imagingRepository.save(imaging);
+        }
+        return null;
+    }
     
     public void deleteImaging(Integer id) {
         imagingRepository.deleteById(id);

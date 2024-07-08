@@ -27,20 +27,20 @@ public class ImagingController {
         return imagingService.getAllImagings();
     }
 
-    // @GetMapping("/{imagingId}")
-    // public Imaging getImaging(@PathVariable int imagingId) {
-    //     return imagingService.getImaging(imagingId);
-    // }
+    @GetMapping("/{imagingId}")
+    public Imaging getImaging(@PathVariable int imagingId) {
+        return imagingService.getImagingById(imagingId);
+    }
 
-    // @PostMapping
-    // public Imaging createImaging(@RequestBody Imaging imaging) {
-    //     return imagingService.createImaging(imaging);
-    // }
+    @PostMapping
+    public Imaging createImaging(@RequestBody Imaging imaging) {
+        return imagingService.saveImaging(imaging);
+    }
 
-    // @PutMapping("/{imagingId}")
-    // public Imaging updateImaging(@PathVariable int imagingId, @RequestBody Imaging imaging) {
-    //     return imagingService.updateImaging(imagingId, imaging);
-    // }
+    @PutMapping("/{imagingId}")
+    public Imaging updateImaging(@PathVariable int imagingId, @RequestBody Imaging imaging) {
+        return imagingService.updateImaging(imagingId, imaging);
+    }
 
     @DeleteMapping("/{imagingId}")
     public void deleteImaging(@PathVariable int imagingId) {

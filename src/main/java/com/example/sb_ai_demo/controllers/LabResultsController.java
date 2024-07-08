@@ -27,24 +27,25 @@ public class LabResultsController {
         return labResultService.getAllLabResults();
     }
 
-    // @GetMapping("/{labResultId}")
-    // public LabResult getLabResult(@PathVariable int labResultId) {
-    //     return labResultService.getLabResult(labResultId);
-    // }
+    @GetMapping("/{labResultId}")
+    public LabResult getLabResult(@PathVariable int labResultId) {
+        return labResultService.getLabResult(labResultId);
+    }
 
-    // @PostMapping
-    // public LabResult createLabResult(@RequestBody LabResult labResult) {
-    //     return labResultService.createLabResult(labResult);
-    // }
+    @PostMapping
+    public LabResult createLabResult(@RequestBody LabResult labResult) {
+        return labResultService.createLabResult(labResult);
+    }
 
-    // @PutMapping("/{labResultId}")
-    // public LabResult updateLabResult(@PathVariable int labResultId, @RequestBody LabResult labResult) {
-    //     return labResultService.updateLabResult(labResultId, labResult);
-    // }
+    @PutMapping("/{labResultId}")
+    public LabResult updateLabResult(@RequestBody LabResult labResult) {
+        return labResultService.updateLabResult(labResult);
+    }
 
     @DeleteMapping("/{labResultId}")
     public void deleteLabResult(@PathVariable int labResultId) {
         labResultService.deleteLabResult(labResultId);
     }
 }
+
 
