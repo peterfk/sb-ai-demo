@@ -46,5 +46,10 @@ public class VisitController {
     public void deleteVisit(@PathVariable int visitId) {
         visitService.deleteVisit(visitId);
     }
+
+    @GetMapping("/owner/{lastName}")
+    public List<Visit> getVisitsByOwnerLastName(@PathVariable String lastName) {
+        return visitService.getVisitsByOwnerLastName(lastName);
+    }
 }
 

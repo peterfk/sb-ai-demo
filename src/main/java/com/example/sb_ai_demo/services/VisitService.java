@@ -41,6 +41,10 @@ public class VisitService {
         }
         return null;
     }
+
+    public List<Visit> getVisitsByOwnerLastName(String lastName) {
+        return visitRepository.findByOwnerLastName(lastName);
+    }
     
     public void deleteVisit(Integer id) {
         visitRepository.deleteById(id);
