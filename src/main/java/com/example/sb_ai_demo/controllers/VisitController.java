@@ -27,20 +27,20 @@ public class VisitController {
         return visitService.getAllVisits();
     }
 
-    // @GetMapping("/{visitId}")
-    // public Visit getVisit(@PathVariable int visitId) {
-    //     return visitService.getVisit(visitId);
-    // }
+    @GetMapping("/{visitId}")
+    public Visit getVisit(@PathVariable int visitId) {
+        return visitService.getVisit(visitId);
+    }
 
-    // @PostMapping
-    // public Visit createVisit(@RequestBody Visit visit) {
-    //     return visitService.createVisit(visit);
-    // }
+    @PostMapping
+    public Visit createVisit(@RequestBody Visit visit) {
+        return visitService.createVisit(visit);
+    }
 
-    // @PutMapping("/{visitId}")
-    // public Visit updateVisit(@PathVariable int visitId, @RequestBody Visit visit) {
-    //     return visitService.updateVisit(visitId, visit);
-    // }
+    @PutMapping("/{visitId}")
+    public Visit updateVisit(@PathVariable int visitId, @RequestBody Visit visit) {
+        return visitService.updateVisit(visitId, visit);
+    }
 
     @DeleteMapping("/{visitId}")
     public void deleteVisit(@PathVariable int visitId) {

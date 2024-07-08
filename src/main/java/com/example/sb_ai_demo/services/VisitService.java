@@ -25,6 +25,22 @@ public class VisitService {
     public Visit saveVisit(Visit visit) {
         return visitRepository.save(visit);
     }
+
+    public Visit getVisit(int visitId) {
+        return visitRepository.findById(visitId).orElse(null);
+    }
+
+    public Visit createVisit(Visit visit) {
+        return visitRepository.save(visit);
+    }
+
+    public Visit updateVisit(int visitId, Visit visit) {
+        if (visitRepository.existsById(visitId)) {
+            visit.setVisitId(visitId);
+            return visitRepository.save(visit);
+        }
+        return null;
+    }
     
     public void deleteVisit(Integer id) {
         visitRepository.deleteById(id);
