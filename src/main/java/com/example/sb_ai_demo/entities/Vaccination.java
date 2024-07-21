@@ -3,8 +3,7 @@ package com.example.sb_ai_demo.entities;
 
 import java.util.Date;
 
-import com.fasterxml.jackson.annotation.JsonManagedReference;
-
+import com.fasterxml.jackson.annotation.JsonBackReference;
 import jakarta.persistence.*;
 
 
@@ -16,7 +15,7 @@ public class Vaccination {
     private int vaccinationId;
     @ManyToOne
     @JoinColumn(name = "pet_id")
-    @JsonManagedReference
+    @JsonBackReference("pet-vac")
     private Pet pet;
     private String vaccineType;
     private Date administrationDate;

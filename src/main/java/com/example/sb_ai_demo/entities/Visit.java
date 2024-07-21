@@ -16,7 +16,7 @@ public class Visit {
     private int visitId;
     @ManyToOne
     @JoinColumn(name = "appointment_id")
-    @JsonManagedReference 
+    @JsonBackReference 
     private Appointment appointment;
     private Date visitDate;
     private String chiefComplaint;
@@ -25,11 +25,11 @@ public class Visit {
     private String treatment;
 
     @OneToMany(mappedBy = "visit")
-    @JsonBackReference
+    @JsonManagedReference
     private List<LabResult> labResults;
 
     @OneToMany(mappedBy = "visit")
-    @JsonBackReference
+    @JsonManagedReference
     private List<Imaging> imagings;
 
     public int getVisitId() {

@@ -25,14 +25,14 @@ public class Appointment {
     private int appointmentId;
     @ManyToOne
     @JoinColumn(name = "pet_id")
-    @JsonManagedReference
+    @JsonBackReference("pet-app")
     private Pet pet;
     private Date date;
     private Time time;
     private String reason;
 
     @OneToMany(mappedBy = "appointment")
-    @JsonBackReference
+    @JsonManagedReference
     private List<Visit> visits;
 
     public int getAppointmentId() {

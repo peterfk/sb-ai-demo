@@ -3,7 +3,7 @@ package com.example.sb_ai_demo.entities;
 import jakarta.persistence.*;
 import java.util.Date;
 
-import com.fasterxml.jackson.annotation.JsonManagedReference;
+import com.fasterxml.jackson.annotation.JsonBackReference;
 
 @Entity
 @Table(name = "Medications")
@@ -13,7 +13,7 @@ public class Medication {
     private int medicationId;
     @ManyToOne
     @JoinColumn(name = "pet_id")
-    @JsonManagedReference
+    @JsonBackReference("pet-med")
     private Pet pet;
     private String medicationName;
     private String dosage;

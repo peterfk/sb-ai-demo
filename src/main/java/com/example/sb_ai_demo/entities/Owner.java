@@ -2,7 +2,7 @@ package com.example.sb_ai_demo.entities;
 
 import java.util.List;
 
-import com.fasterxml.jackson.annotation.JsonBackReference;
+import com.fasterxml.jackson.annotation.JsonManagedReference;
 
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
@@ -24,7 +24,7 @@ public class Owner {
     private String address;
 
     @OneToMany(mappedBy = "owner")
-    @JsonBackReference
+    @JsonManagedReference("owner-pet")
     private List<Pet> pets;
 
     public int getOwnerId() {

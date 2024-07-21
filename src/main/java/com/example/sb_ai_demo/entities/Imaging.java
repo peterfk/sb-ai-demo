@@ -1,7 +1,6 @@
 package com.example.sb_ai_demo.entities;
 
-import com.fasterxml.jackson.annotation.JsonManagedReference;
-
+import com.fasterxml.jackson.annotation.JsonBackReference;
 import jakarta.persistence.*;
 
 @Entity
@@ -12,7 +11,7 @@ public class Imaging {
     private int imagingId;
     @ManyToOne
     @JoinColumn(name = "visit_id")
-    @JsonManagedReference 
+    @JsonBackReference 
     private Visit visit;
     private String studyType;
     private String imageUrl;

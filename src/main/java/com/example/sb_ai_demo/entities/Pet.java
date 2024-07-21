@@ -23,7 +23,7 @@ public class Pet {
     private int petId;
     @ManyToOne
     @JoinColumn(name = "owner_id")
-    @JsonManagedReference
+    @JsonBackReference("owner-pet")
     private Owner owner;
     private String name;
     private String species;
@@ -33,15 +33,15 @@ public class Pet {
     private String sex;
 
     @OneToMany(mappedBy = "pet")
-    @JsonBackReference
+    @JsonManagedReference("pet-app")
     private List<Appointment> appointments;
 
     @OneToMany(mappedBy = "pet")
-    @JsonBackReference
+    @JsonManagedReference("pet-vac")
     private List<Vaccination> vaccinations;
 
     @OneToMany(mappedBy = "pet")
-    @JsonBackReference
+    @JsonManagedReference("pet-med")
     private List<Medication> medications;
 
 
