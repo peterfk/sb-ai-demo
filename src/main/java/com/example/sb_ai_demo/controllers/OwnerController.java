@@ -77,7 +77,7 @@ public class OwnerController {
     }
 
     @GetMapping("/search/lastname-or-firstname")
-    public Owner getOwnerByLastnameOrFirstname(@RequestParam String lastname, @RequestParam String firstname) {
+    public List<Owner> getOwnerByLastnameOrFirstname(@RequestParam String lastname, @RequestParam String firstname) {
         return ownerService.getOwnerByLastnameOrFirstname(lastname, firstname);
     }
 }

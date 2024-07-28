@@ -17,7 +17,7 @@ public interface OwnerRepository extends JpaRepository<Owner, Integer> {
     List<Owner> findByFirstnameStartsWith(String firstname);
 
     @Query("select u from Owner u where u.firstName = :firstname or u.lastName = :lastname")
-    Owner findByLastnameOrFirstname(@Param("lastname") String lastname,
+    List<Owner> findByLastnameOrFirstname(@Param("lastname") String lastname,
             @Param("firstname") String firstname);
 
 }

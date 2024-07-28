@@ -38,7 +38,7 @@ public class OwnerService {
         return ownerRepository.findByFirstnameStartsWith(firstname);
     }
     
-    public Owner getOwnerByLastnameOrFirstname(String lastname, String firstname) {
+    public List<Owner> getOwnerByLastnameOrFirstname(String lastname, String firstname) {
         return ownerRepository.findByLastnameOrFirstname(lastname, firstname);
     }
 
