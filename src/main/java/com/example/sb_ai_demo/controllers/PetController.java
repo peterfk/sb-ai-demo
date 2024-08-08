@@ -12,6 +12,7 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
+import com.example.sb_ai_demo.entities.Owner;
 import com.example.sb_ai_demo.entities.Pet;
 import com.example.sb_ai_demo.services.PetService;
 
@@ -32,8 +33,11 @@ public class PetController {
         return petService.getPetById(id);
     }
     
-    @PostMapping
-    public Pet createPet(@RequestBody Pet pet) {
+    @PostMapping("/{id}")
+    public Pet createPet(@PathVariable Integer id, @RequestBody Pet pet) {
+        Owner owner = new Owner();
+        owner.setOwnerId(id);
+        pet.setOwner(owner);
         return petService.savePet(pet);
     }
     
