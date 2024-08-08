@@ -43,6 +43,9 @@ public class PetController {
     
     @PutMapping("/{id}")
     public Pet updatePet(@PathVariable Integer id, @RequestBody Pet pet) {
+        Owner owner = new Owner();
+        owner.setOwnerId(id);
+        pet.setOwner(owner);
         return petService.savePet(pet);
     }
     

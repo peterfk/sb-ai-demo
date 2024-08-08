@@ -49,7 +49,7 @@ public class PetControllerTest {
                 .retrieve().body(new ParameterizedTypeReference<>() {
                 });
 
-        assertEquals(10, pets.size());
+        assertEquals(11, pets.size());
     }
 
     @Test
@@ -91,6 +91,41 @@ public class PetControllerTest {
         assertEquals("Fluffy", createdPet.getName());
 
         int petId = createdPet.getPetId();
+
+        // Delete the pet
+        restClient.delete()
+                .uri("/{id}", petId)
+                .retrieve()
+                .toBodilessEntity();
+    }
+
+    @Test
+    public void testUpdatePet() {
+        // First, create a pet
+        Pet newPet = new Pet("Max", "Dog", "Golden Retriever", 4, 30.0, "Male", null);
+        Pet createdPet = restClient.post()
+                .uri("/1")
+                .contentType(MediaType.APPLICATION_JSON)
+                .body(newPet)
+                .retrieve()
+                .body(Pet.class);
+
+        int petId = createdPet.getPetId();
+
+        // Update the pet
+        createdPet.setAge(5);
+        createdPet.setWeight(32.5);
+
+        Pet updatedPet = restClient.put()
+                .uri("/1")
+                .contentType(MediaType.APPLICATION_JSON)
+                .body(createdPet)
+                .retrieve()
+                .body(Pet.class);
+
+        assertNotNull(updatedPet);
+        assertEquals(5, updatedPet.getAge());
+        assertEquals(32.5, updatedPet.getWeight());
 
         // Delete the pet
         restClient.delete()
