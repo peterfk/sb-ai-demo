@@ -12,7 +12,6 @@ public class LabResult {
 
     @ManyToOne
     @JoinColumn(name = "visit_id")
-    @JsonBackReference 
     private Visit visit;
     private String testName;
     private double result;

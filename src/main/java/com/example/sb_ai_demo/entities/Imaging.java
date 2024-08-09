@@ -11,7 +11,6 @@ public class Imaging {
     private int imagingId;
     @ManyToOne
     @JoinColumn(name = "visit_id")
-    @JsonBackReference 
     private Visit visit;
     private String studyType;
     private String imageUrl;

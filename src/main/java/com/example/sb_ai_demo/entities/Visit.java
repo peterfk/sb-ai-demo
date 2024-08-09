@@ -4,6 +4,7 @@ import jakarta.persistence.*;
 import java.util.List;
 
 import com.fasterxml.jackson.annotation.JsonBackReference;
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonManagedReference;
 
 import java.util.Date;
@@ -16,7 +17,6 @@ public class Visit {
     private int visitId;
     @ManyToOne
     @JoinColumn(name = "appointment_id")
-    @JsonBackReference 
     private Appointment appointment;
     private Date visitDate;
     private String chiefComplaint;
@@ -25,11 +25,11 @@ public class Visit {
     private String treatment;
 
     @OneToMany(mappedBy = "visit")
-    @JsonManagedReference
+    @JsonIgnore
     private List<LabResult> labResults;
 
     @OneToMany(mappedBy = "visit")
-    @JsonManagedReference
+    @JsonIgnore
     private List<Imaging> imagings;
 
     public int getVisitId() {
@@ -106,4 +106,3 @@ public class Visit {
 
     // getters and setters
 }
-

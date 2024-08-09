@@ -4,6 +4,7 @@ package com.example.sb_ai_demo.entities;
 import java.util.List;
 
 import com.fasterxml.jackson.annotation.JsonBackReference;
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonManagedReference;
 
 import jakarta.persistence.Entity;
@@ -33,15 +34,15 @@ public class Pet {
     private String sex;
 
     @OneToMany(mappedBy = "pet")
-    @JsonManagedReference("pet-app")
+    @JsonIgnore
     private List<Appointment> appointments;
 
     @OneToMany(mappedBy = "pet")
-    @JsonManagedReference("pet-vac")
+    @JsonIgnore
     private List<Vaccination> vaccinations;
 
     @OneToMany(mappedBy = "pet")
-    @JsonManagedReference("pet-med")
+    @JsonIgnore
     private List<Medication> medications;
 
 
